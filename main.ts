@@ -19,7 +19,6 @@ basic.forever(function () {
         if (input.runningTime() - time > 0) {
             time_t = input.runningTime()
             TimeTaken = time_t - time
-            serial.writeLine("" + (TimeTaken))
             makerbit.clearLcd1602()
             makerbit.showStringOnLcd1602("Time Taken", makerbit.position1602(LcdPosition1602.Pos4), 16)
             makerbit.showStringOnLcd1602("" + TimeTaken / 1000 + "s", makerbit.position1602(LcdPosition1602.Pos17), 16)
