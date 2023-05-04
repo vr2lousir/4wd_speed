@@ -1,5 +1,4 @@
 let TimeTaken = 0
-let time_t = 0
 let time = 0
 let state = 0
 makerbit.clearLcd1602()
@@ -17,11 +16,10 @@ basic.forever(function () {
         state = 1
     } else if (sensor_t - sensor == 1 && state == 1) {
         if (input.runningTime() - time > 0) {
-            time_t = input.runningTime()
-            TimeTaken = time_t - time
+            TimeTaken = input.runningTime() - time
             makerbit.clearLcd1602()
             makerbit.showStringOnLcd1602("Time Taken", makerbit.position1602(LcdPosition1602.Pos4), 16)
-            makerbit.showStringOnLcd1602("" + TimeTaken / 1000 + "s", makerbit.position1602(LcdPosition1602.Pos17), 16)
+            makerbit.showStringOnLcd1602("" + TimeTaken / 1000 + "s", makerbit.position1602(LcdPosition1602.Pos17), 16, TextOption.AlignCenter)
             time = input.runningTime()
         }
     }
